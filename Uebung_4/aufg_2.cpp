@@ -1,12 +1,12 @@
 
 #include <iostream>
 #include <vector>
+#include "/home/robert/Komplexpraktikum_Uebung/Uebung_5/aufg_1.cpp"
 
-class Person{
+class Person:public Mammal{
 private:
 std::string name;
 std::string first_name;
-int age;
 std::vector<std::string> parents;
 public:
 Person(std::string n, std::string fn, int a, std::string fp, std::string sp){
@@ -62,11 +62,21 @@ std::string getParents(){
 void aging(){
     age++;
 }
+void walking(){
+    std::cout << "läuft anders" <<std::endl;
+}
 };
 int main() {
 Person *a= new Person("Jan", "Schiffer",21);
 Person *b = new Person("Robert", "Schmidt",21, "Steffen", "Carmen");
+Mammal *m = new Mammal();
 a->aging();
+m->walking();
+a->walking();
+m->breath();
+a->breath();
+m->live();
+
 std::cout<< a->getAge()<<std::endl;
 std::cout<< b->getParents()<<std::endl;
 delete a;

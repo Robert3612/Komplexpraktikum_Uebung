@@ -43,9 +43,6 @@ std::string getName(){
 std::string getFirst_name(){
     return first_name;
 }
-int getAge(){
-    return age;
-}
 std::string getParents(){
     if (parents.empty()){
         return "keine Eltern";

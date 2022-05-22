@@ -21,11 +21,11 @@ int main ()
  
   std::cout << str3 <<std::endl;
   std::cout << str4 <<std::endl;
-  std::memmove (str3, str4, 5);
+  std::memmove (str3, str4, sizeof(str2));
   std::cout << str3 <<std::endl;
   std::cout << str4 <<std::endl;
 
-    char buff1[] = "hallo ";
+    char buff1[] = "hallo";
     char buff2[] = "hello";
   
     int a;
@@ -33,11 +33,11 @@ int main ()
     a = std::memcmp(buff1, buff2, sizeof(buff1));
   
     if (a > 0)
-        std::cout << buff1 << " is greater than " << buff2<< std::endl;
+        std::cout << buff1 << " ist größer als " << buff2<< std::endl;
     else if (a < 0)
-        std::cout << buff1 << " is less than " << buff2<< std::endl;
+        std::cout << buff1 << " ist kleiner als " << buff2<< std::endl;
     else
-        std::cout << buff1 << " is the same as " << buff2<< std::endl;
+        std::cout << buff1 << " ist gleich groß wie " << buff2<< std::endl;
  
   return 0;
 }

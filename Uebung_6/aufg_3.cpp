@@ -26,7 +26,7 @@ int main ()
   std::cout << str4 <<std::endl;
 
     char buff1[] = "hallo ";
-    char buff2[] = "hello";
+    char buff2[] = "hellowwdwdwd";
   
     int a;
   

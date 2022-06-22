@@ -54,6 +54,7 @@ std::vector<Person *> parents;
 std::vector<Person *> siblings;
 std::vector<Person *> children;
 Person* spouse =(Person*) malloc( sizeof( Person ) );
+bool spouseSet = false;
 public:
 Person(std::string n, std::string fn, int a, Person* fp, Person* sp){
     name=n;
@@ -119,6 +120,7 @@ void addSibling(Person* sp){
     siblings.push_back(sp);
 }
 void addSpouse(Person s){
+    spouseSet= true;
     *spouse = s;
 }
 std::string getName(){
@@ -136,8 +138,13 @@ std::vector<Person *> getChildren(){
 std::vector<Person *> getSiblings(){
     return siblings;
 }
-Person getSpouse(){
-    return *spouse;
+Person* getSpouse(){
+    if(spouseSet==false){
+        return NULL;
+    }
+    else{
+    return spouse;
+    }
 }
 std::string getParentsToString(){
     if (parents.empty()){
@@ -174,6 +181,7 @@ static void familytree(Person p){
     
 }
 };
+/**
 int main() {
 Person carmen("Carmen", "Schmidt", 55);
 Person steffen("Steffen", "Schmidt", 57);
@@ -208,3 +216,4 @@ delete Robert;
 
 return 0;
 }
+**/

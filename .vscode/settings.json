@@ -48,6 +48,11 @@
         "thread": "cpp",
         "list": "cpp",
         "set": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "iomanip": "cpp"
     }
 }

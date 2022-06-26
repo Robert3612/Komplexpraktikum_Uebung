@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "/home/robert/Komplexpraktikum_Uebung/Uebung_7/aufg_1.cpp"
 
+//Textaufgabe 2 mitschicken
 bool has_realtionship(Person &p){
     if(p.getParents().empty() && p.getChildren().empty() && p.getSiblings().empty() && p.getSpouse()==NULL){
         return false;

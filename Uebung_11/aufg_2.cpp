@@ -11,7 +11,7 @@
 #include <future>
 
 typedef std::vector< std::thread* > thread_pool;
-std::vector<unsigned long long> data(10000, 798791);
+std::vector<unsigned long long> data(10000, 35643456);
 
 
 void primeFactors(unsigned long long n)
@@ -91,7 +91,8 @@ std::cout << "Time difference multiple thread with pinning= " << std::chrono::du
 }
 
 int main() {
-    int n=20;
+    //threadanzahl
+    int n=10;
 std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 for(int i=0;i<data.size();i++){
     primeFactors(data.at(i));
@@ -102,6 +103,11 @@ std::cout << "Time difference singele thread = " << std::chrono::duration_cast<s
 start_threading( n);
 
 start_threading2( n);
-
+//bei einer kleinen Anzahl von Werten(zB 1000) ist die single implementation schneller
+//pinning ist schneller als kein pinning, aber beide Arten sind viel schneller als single bei einer großen Anzahl von Werten
+//die Zeiten für Threads werden mit steigender Threadanzahl immer kürzer jedoch, steigen sie ab einer bestimmten Anzahl wieder stark
+//ab dieser Anzahl ist der Overhead zu groß
+//die Zeiten nähern sich dem 1/n erreichen dieses aber nie
+//durch den Overhead ist eine kleine Anzahl an Threads näher an 1/n
 return 0;
 }

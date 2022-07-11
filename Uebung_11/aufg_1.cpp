@@ -82,6 +82,8 @@ time_begin.emplace_back(std::chrono::steady_clock::now());
 --done;
 }
 p.set_value();
+
+// ohne die Schleife sind manche Threads schon eher fertig, dadurch geben sie alle nicht mehr eine ähnliche Zeit aus, wenn von außerhalb gemessen wird
 while (done != 0) {
 using namespace std::chrono_literals;
 std::this_thread::sleep_for( 1us );

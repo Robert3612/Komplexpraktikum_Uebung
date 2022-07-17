@@ -7,13 +7,13 @@
 
 
 int query_intrinsics(std::vector<int>* vec){
-std::vector<uint32_t> veg_with_10s(16, 10);
-    auto vreg_cmp = _mm512_loadu_si512(veg_with_10s.data());
+std::vector<uint32_t> helpvec(16, 10);
+    auto helpreg = _mm512_loadu_si512(veg_with_10s.data());
 
-    unsigned int result = 0;
+    int result = 0;
     for (unsigned int i = 0; i < 10000; i += 16) {
-        auto vreg_values = _mm512_loadu_si512(vec->data() + i);
-        auto mask = _mm512_cmplt_epu32_mask(vreg_values, vreg_cmp);
+        auto helpreg2 = _mm512_loadu_si512(vec->data() + i);
+        auto mask = _mm512_cmplt_epu32_mask(helpreg, helpreg2);
         result += _mm_popcnt_u32(mask);
     }
     return result;

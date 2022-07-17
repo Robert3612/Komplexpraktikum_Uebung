@@ -11,7 +11,7 @@ std::vector<uint32_t> helpvec(16, 10);
     auto helpreg = _mm512_loadu_si512(veg_with_10s.data());
 
     int result = 0;
-    for (unsigned int i = 0; i < 10000; i += 16) {
+    for (int i = 0; i < 10000; i += 16) {
         auto helpreg2 = _mm512_loadu_si512(vec->data() + i);
         auto mask = _mm512_cmplt_epu32_mask(helpreg, helpreg2);
         result += _mm_popcnt_u32(mask);
